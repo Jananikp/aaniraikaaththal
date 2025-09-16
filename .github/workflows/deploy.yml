@@ -1,0 +1,50 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Vue App to EC2
+
+on:
+  push:
+    branches: [ main ]   # Trigger on push to main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production  # Optional — adds approval gates later
+
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔑 Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.EC2_SSH_KEY }}
+          name: id_rsa
+          known_hosts: unnecessary
+
+      - name: 🚀 Deploy to EC2
+        run: |
+          chmod 600 id_rsa
+          ssh -o StrictHostKeyChecking=no -i id_rsa ubuntu@${{ secrets.EC2_PUBLIC_IP }} '
+            echo "🔄 Pulling latest code..."
+            cd /home/ubuntu/my-vue-app || { echo "❌ App directory not found"; exit 1; }
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "📦 Installing dependencies..."
+            npm install --production
+
+            echo "🛑 Stopping old process..."
+            pkill -f "vite" 2>/dev/null || echo "No running Vite process"
+
+            echo "🚀 Starting Vue app..."
+            nohup npm run dev > /home/ubuntu/app.log 2>&1 &
+
+            echo "✅ Deployment complete!"
+            exit 0
+          '
+
+      - name: ✅ Verify Deployment (Optional)
+        run: |
+          sleep 10  # Wait for app to start
+          curl -f https://${{ secrets.EC2_PUBLIC_IP }} || { echo "❌ Site not responding"; exit 1; }

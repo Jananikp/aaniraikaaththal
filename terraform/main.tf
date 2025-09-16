@@ -36,6 +36,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "10.0.1.0/24"
+  availability_zone = "ap-south-1a"  
   tags = {
     Name = "main-subnet"
   }
@@ -131,13 +132,18 @@ resource "aws_instance" "web" {
 # ========== Elastic IP (Free if attached to running instance) ==========
 resource "aws_eip" "web_eip" {
   instance = aws_instance.web.id
-  vpc      = true
+  
 
   tags = {
     Name = "web-server-eip"
   }
 }
-
+# ========== GitHub Actions Secret: EC2_PUBLIC_IP ==========
+resource "github_actions_secret" "ec2_public_ip" {
+  repository      = var.github_repo
+  secret_name     = "EC2_PUBLIC_IP"
+  plaintext_value = aws_eip.web_eip.public_ip
+}
 # ========== Outputs ==========
 output "elastic_ip" {
   description = "Persistent public IP for your server"
