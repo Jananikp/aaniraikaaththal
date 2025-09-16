@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+
+/* -------------------
+   GLOBAL STYLES
+------------------- */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 100;
+  color-scheme: light dark;
+  color: rgba(25, 93, 8, 0.604);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* -------------------
+   NAVBAR STYLES
+------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #8B5E3C;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  z-index: 50;
+}
+
+.navbar-container {
+  max-width: 1120px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  padding-right: 0.5rem;
+  min-height: 72px;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.navbar-logo-img {
+  height: 3.5rem;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  color: #A3C76D;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .navbar-logo-text {
+    display: inline;
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0;
+}
+
+.navbar-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  padding: 0.3rem 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile Toggle */
+.navbar-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar-toggle:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Mobile Menu */
+.navbar-mobile {
+  background: #8B5E3C;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+}
+
+.navbar-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+/* -------------------
+   LIGHT MODE OVERRIDES
+------------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  .navbar-link::after {
+    background-color: #000; /* underline black in light mode */
+  }
+}
