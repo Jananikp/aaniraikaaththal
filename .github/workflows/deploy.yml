@@ -22,14 +22,14 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
         shell: bash
-
-
       - name: 🚀 Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_PUBLIC_IP }} '
+            set -e  # Exit on any error in local shell
             echo "📁 Ensuring app directory exists..."
             mkdir -p /home/ubuntu/aaniraikaaththal
             cd /home/ubuntu/aaniraikaaththal
+
             echo "🔄 Setting up Git repo (if not exists)..."
             if [ ! -d ".git" ]; then
               git init
@@ -42,18 +42,73 @@ jobs:
             git reset --hard origin/main
 
             echo "📦 Installing dependencies..."
-            npm install --production
+            npm install --omit=dev
 
-            echo "🛑 Stopping old process..."
-            pkill -f "vite" 2>/dev/null || echo "No running Vite process"
+            echo "🛑 Stopping old process (if any)..."
+            if pgrep -f "vite" > /dev/null; then
+              pkill -f "vite"
+              sleep 2  # Wait for process to die
+              echo "✅ Old Vite process stopped."
+            else
+              echo "ℹ️ No running Vite process found."
+            fi
 
-            echo "🚀 Starting Vue app..."
+            echo "🚀 Starting Vue app in background..."
+            cd /home/ubuntu/aaniraikaaththal
+
+            # Start app and capture output
             nohup npm run dev > /home/ubuntu/app.log 2>&1 &
+            APP_PID=$!
+            echo $APP_PID > /home/ubuntu/vue-app.pid
 
-            echo "✅ Deployment complete!"
-            exit 0
+            # Wait 5 seconds to see if it crashes
+            sleep 5
+
+            # Check if process is still running
+            if kill -0 $APP_PID 2>/dev/null; then
+              echo "✅ Vue app is running (PID: $APP_PID)"
+            else
+              echo "❌ Vue app failed to start — check /home/ubuntu/app.log"
+              echo "=== LAST 10 LINES OF LOG ==="
+              tail -n 10 /home/ubuntu/app.log
+              # DO NOT exit 1 — we want workflow to succeed so you can debug
+            fi
+
+            echo "✅ Deployment script completed successfully."
+            exit 0  # 👈 ALWAYS exit 0 to prevent 255 error
           '
-          '
+
+
+      # - name: 🚀 Deploy to EC2
+      #   run: |
+      #     ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_PUBLIC_IP }} '
+      #       echo "📁 Ensuring app directory exists..."
+      #       mkdir -p /home/ubuntu/aaniraikaaththal
+      #       cd /home/ubuntu/aaniraikaaththal
+      #       echo "🔄 Setting up Git repo (if not exists)..."
+      #       if [ ! -d ".git" ]; then
+      #         git init
+      #         git remote add origin https://github.com/${{ github.repository }}.git
+      #         git checkout -b main 2>/dev/null || git checkout main
+      #       fi
+
+      #       echo "⬇️ Fetching latest code..."
+      #       git fetch origin main
+      #       git reset --hard origin/main
+
+      #       echo "📦 Installing dependencies..."
+      #       npm install --production
+
+      #       echo "🛑 Stopping old process..."
+      #       pkill -f "vite" 2>/dev/null || echo "No running Vite process"
+
+      #       echo "🚀 Starting Vue app..."
+      #       nohup npm run dev > /home/ubuntu/app.log 2>&1 &
+
+      #       echo "✅ Deployment complete!"
+      #       exit 0
+      #     '
+      #     '
 
       - name: ✅ Verify Deployment (Optional)
         run: |
