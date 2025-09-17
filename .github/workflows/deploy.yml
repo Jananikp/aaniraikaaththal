@@ -44,14 +44,14 @@ jobs:
             echo "📦 Installing dependencies..."
             npm install --omit=dev
 
-            echo "🛑 Stopping old process (if any)..."
-            if pgrep -f "vite" > /dev/null; then
-              pkill -f "vite"
-              sleep 2  # Wait for process to die
-              echo "✅ Old Vite process stopped."
-            else
-              echo "ℹ️ No running Vite process found."
-            fi
+            # echo "🛑 Stopping old process (if any)..."
+            # if pgrep -f "vite" > /dev/null; then
+            #   pkill -f "vite"
+            #   sleep 2  # Wait for process to die
+            #   echo "✅ Old Vite process stopped."
+            # else
+            #   echo "ℹ️ No running Vite process found."
+            # fi
 
             echo "🚀 Starting Vue app in background..."
             cd /home/ubuntu/aaniraikaaththal
