@@ -42,7 +42,7 @@ jobs:
             git reset --hard origin/main
 
             echo "📦 Installing dependencies..."
-            npm install --omit=dev
+            npm install 
 
             # echo "🛑 Stopping old process (if any)..."
             # if pgrep -f "vite" > /dev/null; then
