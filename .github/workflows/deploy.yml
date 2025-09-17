@@ -15,12 +15,14 @@ jobs:
       - name: 🛎️ Checkout code
         uses: actions/checkout@v4
 
-      - name: Create SSH Key
-	run: |
+      - name: 🔑 Create SSH Key Manually
+        run: |
           mkdir -p ~/.ssh
           touch ~/.ssh/testfile
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+        shell: bash
+
 
       - name: 🚀 Deploy to EC2
         run: |
