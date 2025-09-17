@@ -59,7 +59,7 @@ jobs:
             # Start app and capture output
             nohup npm run dev > /home/ubuntu/app.log 2>&1 &
             APP_PID=$!
-            echo $APP_PID > /home/ubuntu/vue-app.pid
+            echo $APP_PID > /home/ubuntu/app.pid
 
             # Wait 5 seconds to see if it crashes
             sleep 5
