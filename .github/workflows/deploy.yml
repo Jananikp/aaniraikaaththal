@@ -27,8 +27,18 @@ jobs:
       - name: 🚀 Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_PUBLIC_IP }} '
-            echo "🔄 Pulling latest code..."
-            cd /home/ubuntu/aaniraikaaththal || { echo "❌ App directory not found"; exit 1; }
+            echo "📁 Ensuring app directory exists..."
+            mkdir -p /home/ubuntu/my-vue-app
+            cd /home/ubuntu/my-vue-app
+
+            echo "🔄 Setting up Git repo (if not exists)..."
+            if [ ! -d ".git" ]; then
+              git init
+              git remote add origin https://github.com/${{ github.repository }}.git
+              git checkout -b main 2>/dev/null || git checkout main
+            fi
+
+            echo "⬇️ Fetching latest code..."
             git fetch origin main
             git reset --hard origin/main
 
@@ -43,6 +53,7 @@ jobs:
 
             echo "✅ Deployment complete!"
             exit 0
+          '
           '
 
       - name: ✅ Verify Deployment (Optional)
