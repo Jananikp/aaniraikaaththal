@@ -74,43 +74,43 @@ import { ref, computed } from 'vue'
 const activities = [
   {
     title: "Bonding with Animals",
-    img: "/public/childbond2.jpg",
+    img: "/childbond2.jpg",
     desc: "Experience the joy of connecting with cows and other animals, fostering empathy and gentle care through hands-on interaction.",
     video: "/public/bonding_animals.mp4"
   },
   {
     title: "Panchakavya & Natural Care",
-    img: "/public/composting.jpg",
+    img: "/composting.jpg",
     desc: "Discover the science and tradition behind Panchakavya and natural animal care, learning how these practices sustain our farm.",
     video: "/public/composting.mp4"
   },
   {
     title: "Sustainable Farming Practices",
-    img: "/public/farming.jpg",
+    img: "/farming.jpg",
     desc: "Participate in hands-on farming and learn sustainable, eco-friendly techniques that nurture the land and our community.",
     video: "/public/farming.mp4"
   },
   {
     title: "Living Sustainably – Farm Tour",
-    img: "/public/sustainable.jpg",
+    img: "/sustainable.jpg",
     desc: "Take a guided tour of our farm and discover how we live in harmony with nature, from waste reduction to renewable energy.",
     video: "/public/sustainable.mp4"
   },
   {
     title: "Community & Togetherness",
-    img: "/public/puja.jpg",
+    img: "/puja.jpg",
     desc: "Join us for family pujas, group activities, and shared meals that celebrate togetherness and gratitude on the farm.",
     video: "/public/puja.mp4"
   },
   {
     title: "Experience Gau Puja as a Family",
-    img: "/public/gopuja.jpg",
+    img: "/gopuja.jpg",
     desc: "Take part in the sacred Gau Puja ritual as a family, offering prayers and gratitude to the cows in a meaningful, shared experience.",
     video: "/public/gopuja.mp4"
   },
   {
     title: "Taste the Season",
-    img: "/public/taste_season.jpg", // updated image path
+    img: "/taste_season.jpg", // updated image path
     desc: "Savor fresh, seasonal produce and traditional recipes made from the bounty of our farm. Experience the true flavors of each season!",
     video: "/public/taste.mp4" // update with your actual video path
   }

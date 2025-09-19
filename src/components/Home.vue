@@ -65,9 +65,9 @@
             </div>
             <!-- Description Right -->
             <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-              <h2 class="text-2xl md:text-3xl font-bold mb-4 text-green-700">{{ t.section5Title }}</h2>
+              <h2 class="text-2xl md:text-3xl font-bold mb-4 text-green-700">Friday Puja</h2>
               <p class="text-base md:text-lg leading-relaxed text-black min-h-[5rem] px-2 md:px-0">
-                {{ t.section5Description }}
+                Every Friday we gather for Gau Puja and offer our gratitude to the cows for their nourishment and blessings.
               </p>
             </div>
           </div>

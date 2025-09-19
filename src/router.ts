@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from './components/HomePage.vue'
+import HomePage from './components/Home.vue'
 import GetInvolved from './components/GetInvolved.vue'
 import OurCows from './components/OurCows.vue'
 import Donateform from './components/Donateform.vue'
