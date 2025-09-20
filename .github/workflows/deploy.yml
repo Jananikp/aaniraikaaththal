@@ -113,4 +113,4 @@ jobs:
       - name: ✅ Verify Deployment (Optional)
         run: |
           sleep 10  # Wait for app to start
-          curl -f https://${{ secrets.EC2_PUBLIC_IP }} || { echo "❌ Site not responding"; exit 1; }
+          curl -f https://www.eastcoastfarmer.com || { echo "❌ Site not responding"; exit 1; }
