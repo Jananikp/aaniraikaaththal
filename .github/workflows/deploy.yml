@@ -57,7 +57,11 @@ jobs:
             cd /home/ubuntu/aaniraikaaththal
 
             # Start app and capture output
-            nohup npm run dev > /home/ubuntu/app.log 2>&1 &
+            #nohup npm run dev > /home/ubuntu/app.log 2>&1 &
+            npm install
+            npm run build
+            sudo nginx -t && sudo systemctl reload nginx
+
             APP_PID=$!
             echo $APP_PID > /home/ubuntu/app.pid
 
