@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+
+/* Root */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 100;
+  color: rgba(25, 93, 8, 0.8);
+  background-color: #ffffff;
+}
+
+/* Body reset */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ✅ Navbar spacing fix */
+.home-container {
+  padding-top: 80px; /* equal to navbar height on desktop */
+}
+@media (max-width: 768px) {
+  .home-container {
+    padding-top: 64px; /* smaller on mobile */
+  }
+}
+
+/* Hero section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+.hero-text {
+  flex: 1;
+}
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #4a3110;
+}
+.hero-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #333;
+}
+.hero-video {
+  flex: 1;
+}
+.hero-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Mobile: stack text then video */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-video {
+    margin-top: 1rem;
+  }
+}
+
+/* Content sections */
+.content-section {
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.content-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: #4a3110;
+  margin-bottom: 1rem;
+}
+.content-section p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #333;
+}
