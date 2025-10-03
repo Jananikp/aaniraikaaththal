@@ -21,38 +21,49 @@ public class SecurityConfig {
         this.frontendUrl = env.getProperty("frontend.url", "http://localhost:5173");
     }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login**", "/error", "/oauth2/**","/user", "/logout").permitAll()
-                .anyRequest().authenticated()
-            )
-            .oauth2Login(oauth2 -> oauth2
-                .defaultSuccessUrl(frontendUrl, true)
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true)
-            );
+   @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/login**", "/error", "/oauth2/**", "/logout").permitAll()
+            .anyRequest().authenticated()
+        )
+        .exceptionHandling(e -> e
+            .authenticationEntryPoint((request, response, authException) -> {
+                // If it's an API request, return 401 instead of redirecting
+                if (request.getRequestURI().startsWith("/api/")) {
+                    response.setStatus(401);
+                } else {
+                    // Redirect UI requests to Google login
+                    response.sendRedirect(frontendUrl + "/login");
+                    // Or: response.sendRedirect("/oauth2/authorization/google");
+                }
+            })
+        )
+        .oauth2Login(oauth2 -> oauth2
+            .defaultSuccessUrl(frontendUrl, true)
+        )
+        .logout(logout -> logout
+            .logoutUrl("/logout")
+            .deleteCookies("JSESSIONID")
+            .invalidateHttpSession(true)
+        );
 
-        return http.build();
-    }
+    return http.build();
+}
+   @Bean
+public UrlBasedCorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration config = new CorsConfiguration();
+    config.setAllowCredentials(true);
+    config.setAllowedOriginPatterns(List.of("http://localhost:5173", "https://eastcoastfarmer.com"));
+    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    config.setAllowedHeaders(List.of("*"));
 
-    @Bean
-    public UrlBasedCorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true); // cookies
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://eastcoastfarmer.com")); // Vue frontend and production
-        config.setAllowedOriginPatterns(List.of("http://localhost:5173", "https://eastcoastfarmer.com")); // Vue frontend and production
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-
-        return source;
-    }
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/api/**", config); // only needed for API
+    source.registerCorsConfiguration("/oauth2/**", config); // if called via XHR (not recommended)
+    return source;
+}
 }
