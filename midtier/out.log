@@ -172,3 +172,136 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
 	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
 
+2025-10-02T11:48:14.321+05:30  INFO 10741 --- [midtier] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 7 class path changes (0 additions, 6 deletions, 1 modification)
+2025-10-02T11:48:14.360+05:30  INFO 10741 --- [midtier] [       Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-02T11:48:14.368+05:30  INFO 10741 --- [midtier] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-02T11:48:14.792+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Starting MidtierApplication using Java 24.0.1 with PID 10741 (/Users/janani/Downloads/aaniraikaaththal/midtier/target/classes started by root in /Users/janani/Downloads/aaniraikaaththal/midtier)
+2025-10-02T11:48:14.792+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T11:48:15.169+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T11:48:15.172+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T11:48:15.172+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-02T11:48:15.189+05:30  INFO 10741 --- [midtier] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T11:48:15.189+05:30  INFO 10741 --- [midtier] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 394 ms
+Loaded jwt.secret: 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 (length=35)
+2025-10-02T11:48:15.452+05:30  WARN 10741 --- [midtier] [  restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-10-02T11:48:15.499+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-02T11:48:15.535+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T11:48:15.540+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Started MidtierApplication in 0.779 seconds (process running for 21312.93)
+2025-10-02T11:48:15.542+05:30  INFO 10741 --- [midtier] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-02T11:48:16.907+05:30  INFO 10741 --- [midtier] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 6 class path changes (6 additions, 0 deletions, 0 modifications)
+2025-10-02T11:48:16.908+05:30  INFO 10741 --- [midtier] [       Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-02T11:48:16.911+05:30  INFO 10741 --- [midtier] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-02T11:48:16.984+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Starting MidtierApplication using Java 24.0.1 with PID 10741 (/Users/janani/Downloads/aaniraikaaththal/midtier/target/classes started by root in /Users/janani/Downloads/aaniraikaaththal/midtier)
+2025-10-02T11:48:16.984+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T11:48:17.162+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T11:48:17.162+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T11:48:17.162+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-02T11:48:17.174+05:30  INFO 10741 --- [midtier] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T11:48:17.174+05:30  INFO 10741 --- [midtier] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 188 ms
+Loaded jwt.secret: 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 (length=35)
+2025-10-02T11:48:17.253+05:30  WARN 10741 --- [midtier] [  restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-10-02T11:48:17.277+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-02T11:48:17.283+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T11:48:17.287+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Started MidtierApplication in 0.321 seconds (process running for 21314.677)
+2025-10-02T11:48:17.288+05:30  INFO 10741 --- [midtier] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-02T11:52:53.688+05:30  INFO 10741 --- [midtier] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-02T11:52:53.689+05:30  INFO 10741 --- [midtier] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-02T11:52:53.690+05:30  INFO 10741 --- [midtier] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-03T12:27:51.831+05:30  INFO 10741 --- [midtier] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 9 class path changes (2 additions, 6 deletions, 1 modification)
+2025-10-03T12:27:51.878+05:30  INFO 10741 --- [midtier] [      Thread-11] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-03T12:27:51.895+05:30  INFO 10741 --- [midtier] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-03T12:27:52.428+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Starting MidtierApplication using Java 24.0.1 with PID 10741 (/Users/janani/Downloads/aaniraikaaththal/midtier/target/classes started by root in /Users/janani/Downloads/aaniraikaaththal/midtier)
+2025-10-03T12:27:52.428+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T12:27:52.821+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-03T12:27:52.823+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-03T12:27:52.823+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-03T12:27:52.833+05:30  INFO 10741 --- [midtier] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-03T12:27:52.833+05:30  INFO 10741 --- [midtier] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 401 ms
+Loaded jwt.secret: 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 (length=35)
+2025-10-03T12:27:52.963+05:30  WARN 10741 --- [midtier] [  restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-10-03T12:27:52.991+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-03T12:27:53.011+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-03T12:27:53.014+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Started MidtierApplication in 0.618 seconds (process running for 24747.552)
+2025-10-03T12:27:53.015+05:30  INFO 10741 --- [midtier] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-03T12:27:54.398+05:30  INFO 10741 --- [midtier] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 6 class path changes (6 additions, 0 deletions, 0 modifications)
+2025-10-03T12:27:54.399+05:30  INFO 10741 --- [midtier] [      Thread-15] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-03T12:27:54.401+05:30  INFO 10741 --- [midtier] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-03T12:27:54.474+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Starting MidtierApplication using Java 24.0.1 with PID 10741 (/Users/janani/Downloads/aaniraikaaththal/midtier/target/classes started by root in /Users/janani/Downloads/aaniraikaaththal/midtier)
+2025-10-03T12:27:54.474+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T12:27:54.634+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-03T12:27:54.634+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-03T12:27:54.634+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-03T12:27:54.645+05:30  INFO 10741 --- [midtier] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-03T12:27:54.645+05:30  INFO 10741 --- [midtier] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 169 ms
+Loaded jwt.secret: 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 (length=35)
+2025-10-03T12:27:54.715+05:30  WARN 10741 --- [midtier] [  restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-10-03T12:27:54.734+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-03T12:27:54.739+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-03T12:27:54.743+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Started MidtierApplication in 0.286 seconds (process running for 24749.281)
+2025-10-03T12:27:54.748+05:30  INFO 10741 --- [midtier] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-10-03T12:28:39.870+05:30  INFO 10741 --- [midtier] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 9 class path changes (0 additions, 0 deletions, 9 modifications)
+2025-10-03T12:28:39.871+05:30  INFO 10741 --- [midtier] [      Thread-19] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-03T12:28:39.874+05:30  INFO 10741 --- [midtier] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-03T12:28:39.934+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Starting MidtierApplication using Java 24.0.1 with PID 10741 (/Users/janani/Downloads/aaniraikaaththal/midtier/target/classes started by root in /Users/janani/Downloads/aaniraikaaththal/midtier)
+2025-10-03T12:28:39.934+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T12:28:40.104+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-03T12:28:40.105+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-03T12:28:40.105+05:30  INFO 10741 --- [midtier] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-03T12:28:40.117+05:30  INFO 10741 --- [midtier] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-03T12:28:40.118+05:30  INFO 10741 --- [midtier] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 181 ms
+Loaded jwt.secret: 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 (length=35)
+2025-10-03T12:28:40.202+05:30  WARN 10741 --- [midtier] [  restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-10-03T12:28:40.225+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-03T12:28:40.232+05:30  INFO 10741 --- [midtier] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-03T12:28:40.237+05:30  INFO 10741 --- [midtier] [  restartedMain] com.aanirai.midtier.MidtierApplication   : Started MidtierApplication in 0.321 seconds (process running for 24794.774)
+2025-10-03T12:28:40.238+05:30  INFO 10741 --- [midtier] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

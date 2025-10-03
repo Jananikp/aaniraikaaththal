@@ -1,5 +1,7 @@
 package com.aanirai.midtier.config;
 
+import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +15,12 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
+    private final String frontendUrl;
+
+    public SecurityConfig(Environment env) {
+        this.frontendUrl = env.getProperty("frontend.url", "http://localhost:5173");
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -22,7 +30,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             )
             .oauth2Login(oauth2 -> oauth2
-                .defaultSuccessUrl("http://localhost:5173", true)
+                .defaultSuccessUrl(frontendUrl, true)
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
@@ -37,7 +45,7 @@ public class SecurityConfig {
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // cookies
-        config.setAllowedOrigins(List.of("http://localhost:5173")); // Vue frontend
+        config.setAllowedOrigins(List.of("http://localhost:5173", "https://eastcoastfarmer.com")); // Vue frontend and production
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
 

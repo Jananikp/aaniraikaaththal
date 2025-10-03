@@ -115,6 +115,7 @@ const userName = ref("");
 const userInitial = ref("");
 
 const form = ref({ emailOrMobile: "", password: "" });
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/';
 
 function handleLogin() {
   console.log("submit", form.value);
@@ -125,13 +126,13 @@ function handleLogin() {
 }
 
 function handleGoogleLogin() {
-  window.location.href = "http://localhost:8080/oauth2/authorization/google";
+  window.location.href = `${API_BASE_URL}oauth2/authorization/google`;
 }
 function toggleDropdown() {
   dropdownOpen.value = !dropdownOpen.value;
 }
 function handleLogout() {
-  axios.get("http://localhost:8080/logout", { withCredentials: true })
+  axios.get(`${API_BASE_URL}logout`, { withCredentials: true })
     .then(() => {
       isLoggedIn.value = false;
       userName.value = "";
@@ -141,24 +142,9 @@ function handleLogout() {
     })
     .catch(err => console.error("Logout error", err));
 }
-// // Check if user is already logged in on mount
-// onMounted(async () => {
-//   try {
-//     const res = await axios.get("http://localhost:8080/user", {
-//       withCredentials: true
-//     });
-//     if (res.data?.name) {
-//       userName.value = res.data.name;
-//       userInitial.value = userName.value.charAt(0).toUpperCase();
-//       isLoggedIn.value = true;
-//     }
-//   } catch (error) {
-//     console.log("User not logged in", error);
-//   }
-// });
 onMounted(async () => {
   try {
-    const res = await axios.get("http://localhost:8080/user", {
+    const res = await axios.get(`${API_BASE_URL}api/user`, {
       withCredentials: true
     });
     if (res.data?.name) {
