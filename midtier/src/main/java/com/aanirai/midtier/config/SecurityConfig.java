@@ -46,6 +46,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // cookies
         config.setAllowedOrigins(List.of("http://localhost:5173", "https://eastcoastfarmer.com")); // Vue frontend and production
+        config.setAllowedOriginPatterns(List.of("http://localhost:5173", "https://eastcoastfarmer.com")); // Vue frontend and production
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
 
