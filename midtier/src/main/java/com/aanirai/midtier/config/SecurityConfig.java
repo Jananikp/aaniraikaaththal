@@ -22,7 +22,7 @@ public class SecurityConfig {
     }
 
    @Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+public SecurityFilterChain securityFilterChain(HttpSecurity http, com.aanirai.midtier.auth.CustomOAuth2UserService customOAuth2UserService) throws Exception {
     http
         .cors(cors -> cors.configurationSource(corsConfigurationSource()))
         .csrf(csrf -> csrf.disable())
@@ -43,6 +43,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
             })
         )
         .oauth2Login(oauth2 -> oauth2
+            .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
             .defaultSuccessUrl(frontendUrl, true)
         )
         .logout(logout -> logout

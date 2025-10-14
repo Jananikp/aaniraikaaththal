@@ -11,3 +11,5 @@ midtier/src/main/resources/application*.properties
 # Ignore files containing "keys" or "key" in the filename anywhere
 # Matches: mykey.txt, private-key, config/keys.json, another_key_file
 **/*key*
+
+.env

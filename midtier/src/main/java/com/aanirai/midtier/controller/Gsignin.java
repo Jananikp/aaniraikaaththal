@@ -19,6 +19,4 @@ public class Gsignin{
         return "Login successful!";
     }
 
-   
-
 }

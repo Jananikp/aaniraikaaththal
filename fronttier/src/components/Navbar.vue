@@ -126,7 +126,8 @@ function handleLogin() {
 }
 
 function handleGoogleLogin() {
-  window.location.href = `${API_BASE_URL}oauth2/authorization/google`;
+  // window.location.href = `${API_BASE_URL}oauth2/authorization/google`;
+  window.location.href = "/oauth2/authorization/google";
 }
 function toggleDropdown() {
   dropdownOpen.value = !dropdownOpen.value;
