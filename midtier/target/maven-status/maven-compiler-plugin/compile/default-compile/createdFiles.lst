@@ -1,4 +1,7 @@
+com/aanirai/midtier/donation/DonationController.class
+com/aanirai/midtier/donation/DonationRepository.class
 com/aanirai/midtier/config/DbConnectionLogger.class
+com/aanirai/midtier/donation/Donation.class
 com/aanirai/midtier/controller/UserController.class
 com/aanirai/midtier/user/OAuthUser.class
 com/aanirai/midtier/auth/JwtUtil.class

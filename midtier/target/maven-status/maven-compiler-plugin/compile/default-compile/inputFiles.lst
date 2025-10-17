@@ -6,5 +6,8 @@
 /Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/controller/Gsignin.java
 /Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/controller/HelloController.java
 /Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/controller/UserController.java
+/Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/donation/Donation.java
+/Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/donation/DonationController.java
+/Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/donation/DonationRepository.java
 /Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/user/OAuthUser.java
 /Users/janani/Downloads/aaniraikaaththal/midtier/src/main/java/com/aanirai/midtier/user/OAuthUserRepository.java

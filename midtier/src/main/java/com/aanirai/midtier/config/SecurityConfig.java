@@ -27,7 +27,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http, com.aanirai.mi
         .cors(cors -> cors.configurationSource(corsConfigurationSource()))
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/login**", "/error", "/oauth2/**", "/logout").permitAll()
+            .requestMatchers("/login**", "/error", "/oauth2/**","/api/donate", "/logout").permitAll()
             .anyRequest().authenticated()
         )
         .exceptionHandling(e -> e

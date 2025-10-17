@@ -93,7 +93,7 @@ function validatePAN(val) {
   return /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(val.toUpperCase())
 }
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault()
   errors.value = { name: '', email: '', mobile: '', pan: '' }
   let valid = true
@@ -113,8 +113,35 @@ function handleSubmit(e) {
     errors.value.pan = 'Invalid PAN format. Example: ABCDE1234F'
     valid = false
   }
-  if (valid) {
-    submitted.value = true
+  if (!valid) return
+
+  const donationData = {
+    name: name.value.trim(),
+    email: email.value.trim(),
+    countryCode: countryCode.value,
+    mobile: mobile.value.trim(),
+    amount: amount.value ? parseInt(amount.value, 10) : null,
+    pan: pan.value.trim() || null
+  }
+  try {
+    const response = await fetch('/api/donate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(donationData)
+    })
+
+    if (response.ok) {
+      submitted.value = true
+      // Optionally reset form
+    } else {
+      console.error('Server error:', await response.text())
+      alert('Submission failed. Please try again.')
+    }
+  } catch (err) {
+    console.error('Network error:', err)
+    alert('Unable to connect to server. Is Spring Boot running?')
   }
 }
 </script>
